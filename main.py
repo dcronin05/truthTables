@@ -1,4 +1,5 @@
 from tabulate import tabulate
+from rich import print
 
 
 class TruthTable:
@@ -56,6 +57,7 @@ class TruthTable:
 
         print(self.get_table())
 
+
 def old_tables():
     table_1 = TruthTable(2)
     table_2 = TruthTable(3)
@@ -84,5 +86,56 @@ def old_tables():
     table_4.add_column('¬p ∧ q ∧ r', "not p and q and r")
     print(tabulate(table_4.get_table(), headers='keys', tablefmt='github', showindex=False))
 
+    table_5 = TruthTable(2)
+    table_5.add_column('p → q', "False if p and q == False else True")
+    table_5.add_column('¬p', "not p")
+    table_5.add_column('¬p or q', "not p or q")
+    print(tabulate(table_5.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+    # (a)(¬p ∧ q) → p
+
+    table_6 = TruthTable(2)
+    table_6.add_column('(¬p ∧ q)', "(not p and q)")
+    table_6.add_column('(¬p ∧ q) → p', "not (not p and q) or p")
+    print(tabulate(table_6.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+    # (b)(p → q) → (q → p)
+
+    table_7 = TruthTable(2)
+    table_7.add_column('(p → q)', "not p or q")
+    table_7.add_column('(q → p)', "not q or p")
+    table_7.add_column('(p → q) → (q → p)', "(not (not p or q)) or (not q or p)")
+    print(tabulate(table_7.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+    # (c)(p ∨ q) ↔ (q → ¬p)
+
+    table_8 = TruthTable(2)
+    table_8.add_column('(p ∨ q)', "p or q")
+    table_8.add_column('(q → ¬p)', "not q or not p")
+    table_8.add_column('(p ∨ q) ↔ (q → ¬p)', "(p or q) == (not q or not p)")
+    print(tabulate(table_8.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+    # (d)(p ↔ q) ⊕ (p ↔ ¬q)
+
+    table_9 = TruthTable(2)
+    table_9.add_column('(p ↔ q)', "p == q")
+    table_9.add_column('(p ↔ ¬q)', "p == (not q)")
+    table_9.add_column('(p ↔ q) ⊕ (p ↔ ¬q)', "(p == q) ^ (p == (not q))")
+    print(tabulate(table_9.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+    # (e)(p ∨ q) ↔ (q ∧ p)
+
+    table_10 = TruthTable(2)
+    table_10.add_column('(p ∨ q)', "p or q")
+    table_10.add_column('(q ∧ p)', "q and p")
+    table_10.add_column('(p ∨ q) ↔ (q ∧ p)', "(p or q) == (q and p)")
+    print(tabulate(table_10.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
 
 if __name__ == '__main__':
+    print("Hello world!")
