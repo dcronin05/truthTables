@@ -136,6 +136,34 @@ def old_tables():
     print(tabulate(table_10.get_table(), headers='keys', tablefmt='github', showindex=False))
     print()
 
+    # ((s \land y) \to p) \land (p \to (s \land y))
+    # p = p
+    # s = q
+    # y = r
+    table_11 = TruthTable(3)
+    table_11.add_column('q and r', "q and r")
+    table_11.add_column('not (q and r) or p', "not (q and r) or p")
+    table_11.add_column('not p or (q and r)', "not p or (q and r)")
+    table_11.add_column('((q and r) to p) and (p to (q and r))', "(not(q and r) or p) and (not p or (q and r))")
+    print(tabulate(table_11.get_table(), headers='keys', tablefmt='github', showindex=False))
+
+    table_12 = TruthTable(2)
+    table_12.add_column('r', "q")
+    table_12.add_column('not r', "not q")
+    print(tabulate(table_12.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+    table_13 = TruthTable(2)
+    table_13.add_column('not p and q', "not p and q")
+    table_13.add_column('not q and p', "not q and p")
+    table_13.add_column('p ^ q', "p ^ q")
+    print(tabulate(table_13.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
 
 if __name__ == '__main__':
-    print("Hello world!")
+    table_14 = TruthTable(2)
+    table_14.add_column('not (p and q)', "not (p and q)")
+    table_14.add_column('not p and not q', "not p and not q")
+    table_14.add_column('not p or not q', "not p or not q")
+    print(tabulate(table_14.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
