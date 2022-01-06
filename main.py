@@ -79,3 +79,4 @@ if __name__ == '__main__':
     table_3.add_column('(¬p ∧ q) ∨ (p ∧ ¬q)', "(not p and q) or (p and not q)")
 
     print(tabulate(table_3.get_table(), headers='keys', tablefmt='github', showindex=False))
+    
