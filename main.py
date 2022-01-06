@@ -62,6 +62,7 @@ if __name__ == '__main__':
     table_1 = TruthTable(2)
     table_2 = TruthTable(3)
     table_3 = TruthTable(2)
+    table_4 = TruthTable(3)
 
     table_1.add_column('not p and q', "not p and q")
     table_1.add_column('not (p and q)', "not (p and q)")
@@ -79,4 +80,8 @@ if __name__ == '__main__':
     table_3.add_column('(¬p ∧ q) ∨ (p ∧ ¬q)', "(not p and q) or (p and not q)")
 
     print(tabulate(table_3.get_table(), headers='keys', tablefmt='github', showindex=False))
-    
+    print()
+
+    table_4.add_column('¬p ∧ q', "not p and q")
+    table_4.add_column('¬p ∧ q ∧ r', "not p and q and r")
+    print(tabulate(table_4.get_table(), headers='keys', tablefmt='github', showindex=False))
