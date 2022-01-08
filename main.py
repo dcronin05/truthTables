@@ -160,10 +160,55 @@ def old_tables():
     print(tabulate(table_13.get_table(), headers='keys', tablefmt='github', showindex=False))
     print()
 
-if __name__ == '__main__':
     table_14 = TruthTable(2)
     table_14.add_column('not (p and q)', "not (p and q)")
     table_14.add_column('not p and not q', "not p and not q")
     table_14.add_column('not p or not q', "not p or not q")
     print(tabulate(table_14.get_table(), headers='keys', tablefmt='github', showindex=False))
     print()
+
+
+if __name__ == '__main__':
+
+    table_19 = TruthTable(2)
+    table_19.add_column('p or q', "p or q")
+    table_19.add_column('not q or p', "not p or q")
+    table_19.add_column('(p or q) or (q to p)', "(p or q) or (not q or p)")
+    print(tabulate(table_19.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+    table_15 = TruthTable(2)
+    table_15.add_column('(p to q)', "not p or q")
+    table_15.add_column('p and not q', "p and not q")
+    table_15.add_column('(p to q) == (p and not q)', "(not p or q) == (p and not q)")
+    print(tabulate(table_15.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+    table_16 = TruthTable(2)
+    table_16.add_column('(p → q)', "not p or q")
+    table_16.add_column('(p → q) ↔ p', "(not p or q) == p")
+    print(tabulate(table_16.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+    table_17 = TruthTable(2)
+    table_17.add_column('(p → q)', "not p or q")
+    table_17.add_column('(p → q) ∨ p', "(not p or q) or p")
+    print(tabulate(table_17.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+    table_17 = TruthTable(2)
+    table_17.add_column('(¬p ∨ q)', "not p or q")
+    table_17.add_column('(p ∧ ¬q)', "p and not q")
+    table_17.add_column('(¬p ∨ q) ↔ (p ∧ ¬q)', "(not p or q) == (p and not q)")
+    print(tabulate(table_17.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+    table_18 = TruthTable(2)
+    table_18.add_column('(¬p ∨ q)', "(not p) or q")
+    table_18.add_column('(¬p ∧ q)', "(not p) and q")
+    table_18.add_column('(¬p ∨ q) ↔ (¬p ∧ q)', "((not p) or q) == ((not p) and q)")
+    print(tabulate(table_18.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+
+
