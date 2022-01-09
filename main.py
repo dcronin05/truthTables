@@ -167,9 +167,6 @@ def old_tables():
     print(tabulate(table_14.get_table(), headers='keys', tablefmt='github', showindex=False))
     print()
 
-
-if __name__ == '__main__':
-
     table_19 = TruthTable(2)
     table_19.add_column('p or q', "p or q")
     table_19.add_column('not q or p', "not p or q")
@@ -210,5 +207,132 @@ if __name__ == '__main__':
     print(tabulate(table_18.get_table(), headers='keys', tablefmt='github', showindex=False))
     print()
 
+    table_19 = TruthTable(2)
+    table_19.add_column('p ↔ q', "p == q")
+    table_19.add_column('(p → q) ∧ (q → p)', "(not p or q) and (not q or p)")
+    table_19.add_column('p ↔ q and (p → q) ∧ (q → p)', "(p == q) == ((not p or q) and (not q or p))")
+    print(tabulate(table_19.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
 
+    table_20 = TruthTable(2)
+    table_20.add_column('¬(p ↔ q)', "not (p == q)")
+    table_20.add_column('¬p ↔ q', "not p == q")
+    table_20.add_column('¬(p ↔ q) and ¬p ↔ q', "(not (p == q)) == (not p == q)")
+    print(tabulate(table_20.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+    table_21 = TruthTable(2)
+    table_21.add_column('¬p → q', "not (not p) or q")
+    table_21.add_column('p ∨ q', "p or q")
+    table_21.add_column('¬p → q and p ∨ q', "(not (not p) or q) == (p or q)")
+    print(tabulate(table_21.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+    table_22 = TruthTable(2)
+    table_22.add_column('p → q', "not p or q")
+    table_22.add_column('q → p', "not q or p")
+    table_22.add_column('p → q and q → p', "(not p or q) == (not q or p)")
+    print(tabulate(table_22.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+    table_23 = TruthTable(2)
+    table_23.add_column('¬p → q', "not (not p) or q")
+    table_23.add_column('¬p ∨ q', "not p or q")
+    table_23.add_column('¬p → q and ¬p ∨ q', "(not (not p)) == (not p or q)")
+    print(tabulate(table_23.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+    table_24 = TruthTable(3)
+    table_24.add_column('(p → q) ∧ (r → q)', "(not p or q) and (not r or q)")
+    table_24.add_column('(p ∧ r) → q', "(p and r) or q")
+    table_24.add_column('(p → q) ∧ (r → q) and (p ∧ r) → q', "((not p or q) and (not r or q)) == ((p and r) or q)")
+    print(tabulate(table_24.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+    table_25 = TruthTable(3)
+    table_25.add_column('p ∧ (p → q)', "p and (not p or q)")
+    table_25.add_column('p ∨ q', "p or q")
+    table_25.add_column('p ∧ (p → q) and p ∨ q', "(p and (not p or q)) == (p or q)")
+    print(tabulate(table_25.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+    table_26 = TruthTable(3)
+    table_26.add_column('¬(p ∨ ¬q)', "(not (p or not q))")
+    table_26.add_column('¬p ∧ q', "(not p and q)")
+    table_26.add_column('¬(p ∨ ¬q) and ¬p ∧ q', "(not (p or not q)) == (not p and q)")
+    print(tabulate(table_26.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+    table_27 = TruthTable(2)
+    table_27.add_column('¬(p ∨ ¬q)', "(not (p or not q))")
+    table_27.add_column('¬p ∧ q', "(not p and q)")
+    table_27.add_column('¬(p ∨ ¬q) and ¬p ∧ q', "(not (p or not q)) == (not p and q)")
+    print(tabulate(table_27.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+    table_28 = TruthTable(2)
+    table_28.add_column('p ∧ (p → q)', "(p and (not p or q))")
+    table_28.add_column('p → q', "(not p or q)")
+    table_28.add_column('p ∧ (p → q) and p → q', "(not p or q) == (p and (not p or q))")
+    print(tabulate(table_28.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+    table_29 = TruthTable(2)
+    table_29.add_column('p ∧ (p → q)', "(p and (not p or q))")
+    table_29.add_column('p → q', "(not p or q)")
+    table_29.add_column('p ∧ (p → q) and p → q', "(p and (not p or q)) == (not p or q)")
+    print(tabulate(table_29.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+    table_30 = TruthTable(2)
+    table_30.add_column('p ∧ (p → q)', "(p and (not p or q))")
+    table_30.add_column('p ∧ q', "(p and q)")
+    table_30.add_column('p ∧ (p → q) and p ∧ q', "(p and (not p or q)) == (p and q)")
+    print(tabulate(table_30.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+    table_31 = TruthTable(3)
+    table_31.add_column('not p to (q or not r)', "(not (not p) or (q or not r))")
+    table_31.add_column('(r and not p) to q', "(not (r and not p) or q)")
+    table_31.add_column('not p to (q or not r) == (r and not p) to q', "(not (not p) or (q or not r)) == (not (r and not p) or q)")
+    print(tabulate(table_31.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+    table_32 = TruthTable(3)
+    table_32.add_column('((not p) to (q or not r))', "(not (not p) or (q or not r))")
+    table_32.add_column('((r and not q) to p)', "(not (r and not q) or p)")
+    table_32.add_column('((not p) to (q or not r)) == ((r and not q) to p)', "(not (not p) or (q or not r)) == (not (r and not q) or p)")
+    print(tabulate(table_32.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+    table_33 = TruthTable(2)
+    table_33.add_column('((p) to (not q))', "(not p or (not q))")
+    table_33.add_column('((not p) to q)', "((not (not p)) or q)")
+    table_33.add_column('((p) to (not q)) == ((not p) to q)', "(not p or not q) == (not (not p) or q)")
+    print(tabulate(table_33.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+    table_34 = TruthTable(3)
+    table_34.add_column('((r or not q) to p)', "((not (r or not q)) or p)")
+    table_34.add_column('(p to (r and not q))', "((not p) or (r and not q))")
+    table_34.add_column('((r or not q) to p) == (p to (r and not q))', "((not (r or not q)) or p) == ((not p) or (r and not q))")
+    print(tabulate(table_34.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+
+if __name__ == '__main__':
+
+    # table_35 = TruthTable(3)
+    # table_35.add_column('', "")
+    # table_35.add_column('', "")
+    # table_35.add_column('', "")
+    # print(tabulate(table_35.get_table(), headers='keys', tablefmt='github', showindex=False))
+    # print()
+
+    # table_26 = TruthTable(3)
+    # table_26.add_column('', "")
+    # table_26.add_column('', "")
+    # table_26.add_column('', "")
+    # print(tabulate(table_26.get_table(), headers='keys', tablefmt='github', showindex=False))
+    # print()
 
