@@ -322,6 +322,31 @@ def old_tables():
 
 if __name__ == '__main__':
 
+    table_35 = TruthTable(3)
+    table_35.add_column('not (p and q) or r', "not (p and q) or r")
+    table_35.add_column('not (p or q) or r', "not (p or q) or r")
+    print(tabulate(table_35.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+    table_36 = TruthTable(2)
+    table_36.add_column('(p \\to q)', "(not p) or q")
+    print(tabulate(table_36.get_table(), headers='keys', tablefmt='github', showindex=False))
+    print()
+
+    table_37 = TruthTable(2)
+    table_37.add_column('(p \\to q)', "(not p) or q")
+    table_37.add_column('not p', "(not p)")
+    table_37.add_column('not q', "(not q)")
+    print(tabulate(table_37.get_table(), headers='keys', tablefmt='latex', showindex=False))
+    print()
+
+    table_38 = TruthTable(3)
+    table_38.add_column('(p or q)', "(p or q)")
+    table_38.add_column('(q or r)', "(q or r)")
+    table_38.add_column('(p or r)', "(p or r)")
+    print(tabulate(table_38.get_table(), headers='keys', tablefmt='latex', showindex=False))
+    print()
+
     # table_35 = TruthTable(3)
     # table_35.add_column('', "")
     # table_35.add_column('', "")
